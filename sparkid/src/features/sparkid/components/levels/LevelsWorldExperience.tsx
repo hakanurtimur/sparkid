@@ -5,6 +5,7 @@ import Link from "next/link"
 import { useRouter } from "next/navigation"
 import { Float, Html, OrthographicCamera } from "@react-three/drei"
 import { Canvas, useThree } from "@react-three/fiber"
+import * as THREE from "three"
 
 import { IslandEnvironment } from "@/features/sparkid/components/assets/island/IslandEnvironment"
 import { islandWorldConfig } from "@/features/sparkid/components/assets/island/islandConfigs"
@@ -58,12 +59,23 @@ function Loading() {
 }
 
 function MapCameraRig() {
-    const { camera } = useThree()
+    const { camera, size } = useThree()
 
     useEffect(() => {
         camera.position.set(7.8, 6.6, 9.4)
         camera.lookAt(0, -1.15, -1.8)
-    }, [camera])
+
+        const orthoCamera = camera as THREE.OrthographicCamera & {
+            isOrthographicCamera?: boolean
+        }
+
+        if (orthoCamera.isOrthographicCamera) {
+            orthoCamera.zoom =
+                size.width < 768 ? 38 : size.width < 1200 ? 50 : 62
+
+            orthoCamera.updateProjectionMatrix()
+        }
+    }, [camera, size.width])
 
     return null
 }

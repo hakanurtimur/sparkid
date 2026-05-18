@@ -251,6 +251,6 @@ export const islandWorldConfig = [
 
 export const POWER_ISLAND_CONFIG = islandWorldConfig[0]
 
-export function getIslandBySlug(slug: string): IslandWorldConfig | undefined {
+export function getIslandBySlug(slug: string) {
     return islandWorldConfig.find((island) => island.slug === slug)
 }
