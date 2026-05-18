@@ -1,0 +1,153 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --sparkid-navy: oklch(22.58% 0.0724 260.36);
+  --sparkid-navy-dark: oklch(15.33% 0.0462 259.31);
+  --sparkid-navy-soft: oklch(30.12% 0.1079 260.70);
+  --sparkid-white: oklch(98.03% 0.0223 87.15);
+  --sparkid-pure-white: oklch(100% 0 0);
+  --sparkid-yellow: oklch(89.14% 0.1588 93.22);
+  --sparkid-orange: oklch(82.64% 0.1616 77.93);
+  --sparkid-cyan: oklch(84.37% 0.1345 202.69);
+  --sparkid-cyan-dark: oklch(72.65% 0.1233 209.88);
+  --sparkid-violet: oklch(61.23% 0.2294 291.39);
+  --sparkid-violet-dark: oklch(50.87% 0.2457 285.21);
+  --sparkid-card: oklch(26.38% 0.0886 261.04);
+  --sparkid-panel: oklch(31.86% 0.1076 260.28);
+  --sparkid-border: oklch(37.61% 0.1089 259.82);
+  --sparkid-muted: oklch(82.83% 0.0466 264.88);
+  --sparkid-secondary: oklch(66.41% 0.0697 265.56);
+  --sparkid-dark-text: oklch(20.93% 0.0323 262.41);
+  --sparkid-success: oklch(81.67% 0.1672 158.65);
+  --sparkid-error: oklch(71.16% 0.1812 22.84);
+
+  --background: var(--sparkid-navy-dark);
+  --foreground: var(--sparkid-white);
+  --card: var(--sparkid-card);
+  --card-foreground: var(--sparkid-white);
+  --popover: var(--sparkid-card);
+  --popover-foreground: var(--sparkid-white);
+  --primary: var(--sparkid-yellow);
+  --primary-foreground: var(--sparkid-dark-text);
+  --secondary: var(--sparkid-panel);
+  --secondary-foreground: var(--sparkid-white);
+  --muted: var(--sparkid-navy-soft);
+  --muted-foreground: var(--sparkid-muted);
+  --accent: var(--sparkid-cyan);
+  --accent-foreground: var(--sparkid-dark-text);
+  --destructive: var(--sparkid-error);
+  --border: var(--sparkid-border);
+  --input: var(--sparkid-border);
+  --ring: var(--sparkid-cyan);
+  --chart-1: var(--sparkid-yellow);
+  --chart-2: var(--sparkid-cyan);
+  --chart-3: var(--sparkid-violet);
+  --chart-4: var(--sparkid-orange);
+  --chart-5: var(--sparkid-success);
+  --radius: 0.625rem;
+  --sidebar: var(--sparkid-card);
+  --sidebar-foreground: var(--sparkid-white);
+  --sidebar-primary: var(--sparkid-yellow);
+  --sidebar-primary-foreground: var(--sparkid-dark-text);
+  --sidebar-accent: var(--sparkid-panel);
+  --sidebar-accent-foreground: var(--sparkid-white);
+  --sidebar-border: var(--sparkid-border);
+  --sidebar-ring: var(--sparkid-cyan);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: Arial, Helvetica, sans-serif;
+  --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  --font-heading: var(--font-sans);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+.dark {
+  --background: var(--sparkid-navy-dark);
+  --foreground: var(--sparkid-white);
+  --card: var(--sparkid-card);
+  --card-foreground: var(--sparkid-white);
+  --popover: var(--sparkid-card);
+  --popover-foreground: var(--sparkid-white);
+  --primary: var(--sparkid-yellow);
+  --primary-foreground: var(--sparkid-dark-text);
+  --secondary: var(--sparkid-panel);
+  --secondary-foreground: var(--sparkid-white);
+  --muted: var(--sparkid-navy-soft);
+  --muted-foreground: var(--sparkid-muted);
+  --accent: var(--sparkid-cyan);
+  --accent-foreground: var(--sparkid-dark-text);
+  --destructive: var(--sparkid-error);
+  --border: var(--sparkid-border);
+  --input: var(--sparkid-border);
+  --ring: var(--sparkid-cyan);
+  --chart-1: var(--sparkid-yellow);
+  --chart-2: var(--sparkid-cyan);
+  --chart-3: var(--sparkid-violet);
+  --chart-4: var(--sparkid-orange);
+  --chart-5: var(--sparkid-success);
+  --sidebar: var(--sparkid-card);
+  --sidebar-foreground: var(--sparkid-white);
+  --sidebar-primary: var(--sparkid-yellow);
+  --sidebar-primary-foreground: var(--sparkid-dark-text);
+  --sidebar-accent: var(--sparkid-panel);
+  --sidebar-accent-foreground: var(--sparkid-white);
+  --sidebar-border: var(--sparkid-border);
+  --sidebar-ring: var(--sparkid-cyan);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  button:not(:disabled), [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+  html {
+    @apply font-sans;
+  }
+}
