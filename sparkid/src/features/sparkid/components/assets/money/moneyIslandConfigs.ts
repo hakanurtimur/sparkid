@@ -33,7 +33,7 @@ export const moneyIslandConfigs: MoneyIslandConfig[] = [
         name: "Need or Want Island",
         title: "İhtiyaç mı, İstek mi?",
         slug: "need-want",
-        modelPath: "/models/islands/island-01-power__static.glb",
+        modelPath: "/models/islands/island-01-needs-wants__static.glb",
         accentColor: "#35E5F2",
         status: "available",
         position: [0, 0, 0],
