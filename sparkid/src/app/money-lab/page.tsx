@@ -1,5 +1,5 @@
-import MoneyLabExperience from "@/features/sparkid/components/money-lab/MoneyLabExperience"
+import CircuitLabExperience from "@/features/sparkid/components/circuit-lab/CircuitLabExperience"
 
 export default function MoneyLabPage() {
-    return <MoneyLabExperience />
+    return <CircuitLabExperience />
 }
