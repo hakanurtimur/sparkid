@@ -48,12 +48,6 @@ export default function Home() {
               </Button>
               <Button
                 asChild
-                className="h-14 rounded-full bg-[var(--sparkid-cyan)] px-7 text-base font-black text-[var(--sparkid-navy-dark)] shadow-[0_18px_42px_rgba(53,229,242,0.2)] transition hover:-translate-y-0.5 hover:bg-[var(--sparkid-cyan-dark)]"
-              >
-                <Link href="/money-levels">Money Lab&apos;e Başla</Link>
-              </Button>
-              <Button
-                asChild
                 variant="outline"
                 className="h-14 rounded-full border-[var(--sparkid-border)] bg-[var(--sparkid-card)] px-7 text-base font-black text-[var(--sparkid-white)] transition hover:-translate-y-0.5 hover:border-[var(--sparkid-cyan)] hover:bg-[var(--sparkid-panel)] hover:text-[var(--sparkid-white)]"
               >
