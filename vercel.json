@@ -5,11 +5,5 @@
       "src": "sparkid/package.json",
       "use": "@vercel/next"
     }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "sparkid/$1"
-    }
   ]
 }
