@@ -15,6 +15,7 @@ type CircuitGridOverlayProps = {
     selectedCell?: GridCell | null;
     hoveredCell?: GridCell | null;
     occupiedCells?: GridCell[];
+    allowedCells?: GridCell[];
     showVisualGrid?: boolean;
     showDebugCells?: boolean;
     onCellHover?: (cell: GridCell | null) => void;
@@ -62,6 +63,7 @@ export function CircuitGridOverlay({
                                        selectedCell = null,
                                        hoveredCell = null,
                                        occupiedCells = [],
+                                       allowedCells,
                                        showVisualGrid = CIRCUIT_BOARD_CONFIG.grid.showVisualGrid,
                                        showDebugCells = false,
                                        onCellHover,
@@ -149,9 +151,11 @@ export function CircuitGridOverlay({
                     };
 
                     const occupied = isOccupied(currentCell, occupiedCells);
+                    const allowed =
+                        !allowedCells || allowedCells.some((cell) => isSameCell(cell, currentCell));
                     const selected = isSameCell(currentCell, selectedCell);
                     const hovered = isSameCell(currentCell, hoveredCell);
-                    const placeable = Boolean(selectedPart) && !occupied;
+                    const placeable = Boolean(selectedPart) && !occupied && allowed;
 
                     const color = selected
                         ? grid.selectedCellColor
@@ -187,7 +191,7 @@ export function CircuitGridOverlay({
                             onPointerDown={(event: ThreeEvent<PointerEvent>) => {
                                 event.stopPropagation();
 
-                                if (occupied) return;
+                                if (!placeable) return;
                                 if (!selectedPart) return;
 
                                 onCellSelect?.(currentCell);

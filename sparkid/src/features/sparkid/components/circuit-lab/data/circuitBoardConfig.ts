@@ -5,7 +5,7 @@ export type GridCell = {
     col: number;
 };
 
-export type CircuitPlaceablePart = "battery" | "switch" | "bulb";
+export type CircuitPlaceablePart = "battery" | "switch" | "bulb" | "bulb2";
 
 export const CIRCUIT_BOARD_CONFIG = {
     table: {
@@ -41,7 +41,7 @@ export const CIRCUIT_BOARD_CONFIG = {
 
     placement: {
         battery: {
-            defaultCell: { row: 1, col: 0 } as GridCell,
+            defaultCell: { row: 2, col: 0 } as GridCell,
             scale: 0.1,
             xOffset: 0.07,
             yOffset: 0.15,
@@ -57,7 +57,7 @@ export const CIRCUIT_BOARD_CONFIG = {
         },
 
         bulb: {
-            defaultCell: { row: 1, col: 3 } as GridCell,
+            defaultCell: { row: 0, col: 3 } as GridCell,
             scale: 0.15,
             xOffset: 0,
             yOffset: 0.16,

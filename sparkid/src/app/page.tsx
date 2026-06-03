@@ -20,38 +20,38 @@ export default function Home() {
             variant="outline"
             className="hidden rounded-full border-[var(--sparkid-border)] bg-[var(--sparkid-card)] px-5 py-3 text-sm font-black text-[var(--sparkid-cyan)] hover:border-[var(--sparkid-cyan)] hover:bg-[var(--sparkid-panel)] hover:text-[var(--sparkid-cyan)] sm:inline-flex"
           >
-            <Link href="/circuit">Lab&apos;i Aç</Link>
+            <Link href="/levels">Adaları Aç</Link>
           </Button>
         </header>
 
         <div className="grid flex-1 items-center gap-12 py-12 lg:grid-cols-[minmax(0,1fr)_420px]">
           <div className="max-w-3xl">
             <p className="mb-5 text-sm font-black uppercase tracking-[0.24em] text-[var(--sparkid-cyan)]">
-              Sparkid Circuit Lab
+              Sparkid Islands
             </p>
             <h1 className="text-5xl font-black leading-tight text-[var(--sparkid-white)] sm:text-7xl">
               Sparkid
             </h1>
             <p className="mt-6 text-2xl font-bold text-[var(--sparkid-yellow)]">
-            Çocuklar için 3D yapay zekâ deney laboratuvarı.
+            Çocuklar için 3D devre adaları ve yapay zekâ rehberi.
           </p>
             <p className="mt-5 max-w-2xl text-lg font-semibold leading-8 text-[var(--sparkid-muted)]">
-            Pil, kablo, anahtar ve ampulü bir araya getir; devreni kur, ışığı
-            yak ve elektriğin nasıl çalıştığını keşfet.
+            Adadan adaya ilerle; pil, kablo, anahtar ve ampullerle görevleri
+            tamamla, ödüller kazan ve elektriğin nasıl çalıştığını keşfet.
           </p>
             <div className="mt-10 flex flex-col gap-3 sm:flex-row">
               <Button
                 asChild
                 className="h-14 rounded-full bg-primary px-7 text-base font-black text-primary-foreground shadow-[0_18px_42px_rgba(255,216,74,0.26)] transition hover:-translate-y-0.5 hover:bg-[var(--sparkid-orange)]"
               >
-                <Link href="/circuit">Devre Laboratuvarına Başla</Link>
+                <Link href="/levels">Adalara Başla</Link>
               </Button>
               <Button
                 asChild
                 variant="outline"
                 className="h-14 rounded-full border-[var(--sparkid-border)] bg-[var(--sparkid-card)] px-7 text-base font-black text-[var(--sparkid-white)] transition hover:-translate-y-0.5 hover:border-[var(--sparkid-cyan)] hover:bg-[var(--sparkid-panel)] hover:text-[var(--sparkid-white)]"
               >
-                <Link href="/sparkid">Karakterleri Keşfet</Link>
+                <Link href="/circuit">Serbest Lab&apos;i Aç</Link>
               </Button>
             </div>
           </div>
@@ -71,13 +71,13 @@ export default function Home() {
                     Playable Lab
                   </p>
                   <h2 className="mt-1 text-2xl font-black text-[var(--sparkid-white)]">
-                    Devreyi Kur
+                    Ada Yolculuğu
                   </h2>
                 </div>
               </div>
 
               <div className="mt-8 grid gap-3">
-                {["Pil", "Kablo", "Anahtar", "Ampul"].map((item, index) => (
+                {["Kapalı Devre", "Anahtar", "Arıza", "Seri", "Paralel", "Özgür Alan"].map((item, index) => (
                   <div
                     key={item}
                     className="flex items-center justify-between rounded-2xl border border-[var(--sparkid-border)] bg-[var(--sparkid-navy-soft)] px-4 py-3"

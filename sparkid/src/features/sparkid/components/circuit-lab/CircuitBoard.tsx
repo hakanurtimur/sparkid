@@ -17,6 +17,7 @@ type CircuitBoardProps = {
     selectedCell?: GridCell | null;
     hoveredCell?: GridCell | null;
     occupiedCells?: GridCell[];
+    allowedCells?: GridCell[];
     showGrid?: boolean;
     showDebugCells?: boolean;
     onCellHover?: (cell: GridCell | null) => void;
@@ -31,6 +32,7 @@ export function CircuitBoard({
                                  selectedCell = null,
                                  hoveredCell = null,
                                  occupiedCells = [],
+                                 allowedCells,
                                  showGrid = true,
                                  showDebugCells = false,
                                  onCellHover,
@@ -55,6 +57,7 @@ export function CircuitBoard({
                     selectedCell={selectedCell}
                     hoveredCell={hoveredCell}
                     occupiedCells={occupiedCells}
+                    allowedCells={allowedCells}
                     showDebugCells={showDebugCells}
                     onCellHover={onCellHover}
                     onCellSelect={onCellSelect}

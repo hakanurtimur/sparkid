@@ -90,27 +90,34 @@ export default function PluggerPort({
     void version
 
     const isCableMode = cableMode.enabled
+    const isSelectable = cableMode.isPortSelectable(id)
     const connected = Boolean(getConnectedPortId(id))
     const pending = cableMode.isPendingPort(id)
-    const guideActive = isCableMode && !pending && !connected
+    const disabledByGuide = isCableMode && !isSelectable && !connected
+    const guideActive = isCableMode && isSelectable && !pending && !connected
 
     const status = getStatus({
         connected,
         pending,
         powered: allowEnergyStatus && powered,
     })
+    const visualStatus: PluggerStatus = disabledByGuide ? "disabled" : status
 
     const resolvedKind: CircuitPortKind = kind ?? portType
     const normal = getOrientationNormal(orientation)
-    const interactive = visible && isCableMode
+    const interactive = visible && isCableMode && isSelectable
     const basePlugScale = 0.36
     const cableModeScaleMultiplier = 1.35
     const visualScale =
-        scale * basePlugScale * (isCableMode ? cableModeScaleMultiplier : 1)
+        scale
+        * basePlugScale
+        * (isCableMode && isSelectable ? cableModeScaleMultiplier : 1)
     const resolvedCableColor = pending
         ? "#FFB020"
         : guideActive
           ? "#35E5F2"
+          : disabledByGuide
+            ? "#6B7280"
           : ringColor
 
     return (
@@ -130,11 +137,12 @@ export default function PluggerPort({
                     position={[0, 0, 0]}
                     scale={visualScale}
                     portType={portType}
-                    status={status}
+                    status={visualStatus}
                     orientation={orientation}
                     cableColor={resolvedCableColor}
                     energyColor="#FFD84D"
                     interactive={interactive}
+                    disabled={disabledByGuide}
                     showLabel
                     showLeds
                     showScrews

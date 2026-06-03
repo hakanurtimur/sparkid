@@ -2,8 +2,6 @@
 
 import { useEffect, useState } from "react"
 
-import SparkyGuideAvatar from "./SparkyGuideAvatar"
-
 export type SparkyTone = "idle" | "hint" | "success" | "warning" | "error"
 
 export type SparkyMessage = {
@@ -77,24 +75,20 @@ export default function AiTutorPanel({ sparkyMessage }: AiTutorPanelProps) {
             className={`rounded-3xl border bg-[var(--sparkid-panel)] p-5 ${tonePanelClassName[tone]}`}
         >
             <div className="flex items-start justify-between gap-3">
-                <div className="flex min-w-0 items-start gap-3">
-                    <SparkyGuideAvatar size={132} tone={tone} />
+                <div className="min-w-0">
+                    <p
+                        className={`text-[10px] font-black uppercase tracking-[0.2em] ${toneClassName[tone]}`}
+                    >
+                        AI Rehber
+                    </p>
 
-                    <div className="min-w-0">
-                        <p
-                            className={`text-[10px] font-black uppercase tracking-[0.2em] ${toneClassName[tone]}`}
-                        >
-                            AI Rehber
-                        </p>
+                    <h2 className="mt-1 text-xl font-black text-[var(--sparkid-white)]">
+                        Sparky
+                    </h2>
 
-                        <h2 className="mt-1 text-xl font-black text-[var(--sparkid-white)]">
-                            Sparky
-                        </h2>
-
-                        <p className="mt-1 text-xs font-black text-[var(--sparkid-secondary)]">
-                            {sparkyMessage.title}
-                        </p>
-                    </div>
+                    <p className="mt-1 text-xs font-black text-[var(--sparkid-secondary)]">
+                        {sparkyMessage.title}
+                    </p>
                 </div>
 
                 {sparkyMessage.stepLabel && (

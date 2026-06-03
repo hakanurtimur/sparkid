@@ -5,11 +5,13 @@ import { Environment, Sparkles, Stars } from "@react-three/drei"
 type IslandEnvironmentProps = {
     accent?: string
     showBackground?: boolean
+    effects?: boolean
 }
 
 export function IslandEnvironment({
     accent = "#8ef7ff",
     showBackground = true,
+    effects = true,
 }: IslandEnvironmentProps) {
     return (
         <>
@@ -46,30 +48,36 @@ export function IslandEnvironment({
                 distance={12}
             />
 
-            <Environment
-                preset="city"
-                background={false}
-                environmentIntensity={0.28}
-            />
+            {effects && (
+                <Environment
+                    preset="city"
+                    background={false}
+                    environmentIntensity={0.28}
+                />
+            )}
 
-            <Stars
-                radius={80}
-                depth={35}
-                count={900}
-                factor={2.5}
-                saturation={0}
-                fade
-                speed={0.15}
-            />
+            {effects && (
+                <Stars
+                    radius={80}
+                    depth={35}
+                    count={900}
+                    factor={2.5}
+                    saturation={0}
+                    fade
+                    speed={0.15}
+                />
+            )}
 
-            <Sparkles
-                count={26}
-                scale={[8, 4, 8]}
-                size={1.4}
-                speed={0.18}
-                color={accent}
-                opacity={0.28}
-            />
+            {effects && (
+                <Sparkles
+                    count={26}
+                    scale={[8, 4, 8]}
+                    size={1.4}
+                    speed={0.18}
+                    color={accent}
+                    opacity={0.28}
+                />
+            )}
         </>
     )
 }

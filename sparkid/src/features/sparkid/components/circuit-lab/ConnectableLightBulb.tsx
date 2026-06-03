@@ -1,12 +1,7 @@
-"use client"
-
-import type {
-    TestLightBulbAnimation,
-    TestLightBulbMood,
-} from "@/features/sparkid/components/assets/circuit-elements/light-bulb/TestLightBulbGlbConfig"
-
 import PluggerPort from "./PluggerPort"
-import LightBulbCharacter from "@/features/sparkid/components/assets/circuit-elements/LightBulbCharacter";
+import LightBulbGlb, {
+    type LightBulbMood,
+} from "@/features/sparkid/components/assets/circuit-elements/LightBulbGlb"
 
 type Vec3 = [number, number, number]
 
@@ -25,17 +20,17 @@ export function ConnectableLightBulb({
                                          powered = false,
                                          showPorts = true,
                                      }: ConnectableLightBulbProps) {
-    const mood: TestLightBulbMood = powered ? "happy" : "off"
-    const animation: TestLightBulbAnimation = powered ? "excited" : "hover"
+    const mood: LightBulbMood = powered ? "happy" : "off"
 
     return (
         <group position={position} scale={scale}>
-            <LightBulbCharacter
+            <LightBulbGlb
                 mood={mood}
-                animation={animation}
                 position={[0, 0, 0]}
                 scale={1}
-
+                animated={powered}
+                showGlow={powered}
+                useRealLight={false}
             />
 
             <PluggerPort

@@ -118,13 +118,20 @@ export function CircuitConnectionProvider({
             const port = portsRef.current.get(id)
             if (!port) return
 
+            const positionChanged =
+                port.worldPosition.distanceToSquared(worldPosition) > 0.000001
+
             port.worldPosition.copy(worldPosition)
 
             if (worldNormal) {
                 port.worldNormal.copy(worldNormal).normalize()
             }
+
+            if (positionChanged) {
+                bump()
+            }
         },
-        []
+        [bump]
     )
 
     const unregisterPort = useCallback(

@@ -1,10 +1,10 @@
 "use client"
 
 import { useState } from "react"
-import CircuitSwitch, {
+import CircuitSwitchGlb, {
     type CircuitSwitchAnimation,
     type CircuitSwitchMode,
-} from "@/features/sparkid/components/assets/circuit-elements/CircuitSwitch"
+} from "@/features/sparkid/components/assets/circuit-elements/CircuitSwitchGlb"
 import PluggerPort from "./PluggerPort"
 
 type Vec3 = [number, number, number]
@@ -53,16 +53,13 @@ export default function ConnectableCircuitSwitch({
     }
 
     return (
-        <CircuitSwitch
+        <CircuitSwitchGlb
             position={position}
             scale={scale}
             mode={currentMode}
             animation={animation}
             interactive
             disabled={disabled}
-            showConnectors={false}
-            showScrews
-            showLabels
             showGlow
             onModeChange={handleModeChange}
         >
@@ -97,6 +94,6 @@ export default function ConnectableCircuitSwitch({
                 portType="socket"
                 orientation="right"
             />
-        </CircuitSwitch>
+        </CircuitSwitchGlb>
     )
 }
